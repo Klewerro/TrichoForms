@@ -16,7 +16,7 @@ namespace TrichoForms.Core.ViewModels
 
 
         public IMvxCommand NavigateToListViewCommand => new MvxAsyncCommand(async ()
-            => throw new NotImplementedException());
+            => await NavigationService.Navigate<ListViewModel>());
 
         public IMvxCommand NavigateToAboutViewCommand => new MvxAsyncCommand(async ()
             => await NavigationService.Navigate<AboutViewModel>());
