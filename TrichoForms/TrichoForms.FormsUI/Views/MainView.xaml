@@ -10,10 +10,14 @@
                       x:Class="TrichoForms.FormsUI.Views.MainView"
                       Title="Main view">
 
-    <StackLayout>
-        <Label Text="Welcome to Main View!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+    <StackLayout VerticalOptions="Center" 
+                 Margin="30">
+        <Button Text="List View"
+                Command="{Binding NavigateToListViewCommand}"/>
+        <Button Text="About application"
+                Command="{Binding NavigateToAboutViewCommand}"/>
+        <Button Text="Home view"
+                Command="{Binding NavigateToHomeViewCommand}"/>
     </StackLayout>
     
 </views:MvxContentPage>

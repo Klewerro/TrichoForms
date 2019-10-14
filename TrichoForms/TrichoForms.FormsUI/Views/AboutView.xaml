@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                      xmlns:customcontrols="clr-namespace:TrichoForms.FormsUI.CustomControls"
+                      mc:Ignorable="d"
+                      x:Class="TrichoForms.FormsUI.Views.AboutView"
+                      Title="About application">
+
+    <views:MvxContentPage.Content>
+        <StackLayout VerticalOptions="Start"
+                     Margin="10,50,10,0">
+            
+            <Frame Padding="0" 
+                   Margin="5" 
+                   HasShadow="True" 
+                   CornerRadius="5"
+                   VerticalOptions="Center">
+                <Grid Margin="20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <customcontrols:CircleImage ImageSource="avatar.jpg" 
+                                                HorizontalOptions="Start"/>
+                    <Label Text="Welcome to About view. My name is Szymon and this is sample aplication for test MvvmCross."
+                           FontSize="Medium"
+                           TextColor="Black"
+                           VerticalOptions="Center"
+                           Grid.Column="1"/>
+                </Grid>
+            </Frame>
+
+            <Button Text="Close"
+                    HorizontalOptions="Center"
+                    Command="{Binding CloseCommand}"/>
+            
+        </StackLayout>
+    </views:MvxContentPage.Content>
+
+</views:MvxContentPage>

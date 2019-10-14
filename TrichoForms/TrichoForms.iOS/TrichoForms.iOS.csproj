@@ -148,5 +148,8 @@
   <ItemGroup>
     <BundleResource Include="Resources\Carousel_image_3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\avatar.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
