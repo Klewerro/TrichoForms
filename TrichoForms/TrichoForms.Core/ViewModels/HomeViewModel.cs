@@ -9,18 +9,14 @@ using Xamarin.Forms;
 
 namespace TrichoForms.Core.ViewModels
 {
-    public class HomeViewModel : MvxViewModel
+    public class HomeViewModel : ViewModelBase
     {
-        private readonly IMvxNavigationService _navigationService;
-
         public List<ImageSource> Images { get; set; }
 
 
-        public HomeViewModel(IMvxNavigationService navigationService)
+        public HomeViewModel(IMvxNavigationService navigationService) : base (navigationService)
         {
-            _navigationService = navigationService;
 
-            
         }
 
         public override void Prepare()
@@ -35,7 +31,7 @@ namespace TrichoForms.Core.ViewModels
 
 
         public IMvxCommand NavigateToMenuCommand => new MvxAsyncCommand(async () 
-            => await _navigationService.Navigate<MainViewViewModel>().ConfigureAwait(false));
+            => await NavigationService.Navigate<MainViewViewModel>().ConfigureAwait(false));
 
 
     }
