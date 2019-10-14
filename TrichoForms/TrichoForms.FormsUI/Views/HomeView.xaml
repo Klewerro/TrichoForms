@@ -6,12 +6,22 @@
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       mc:Ignorable="d"
                       x:Class="TrichoForms.FormsUI.Views.HomeView"
-                      Title="Home page">
+                      Title="Home view">
+
+    <views:MvxContentPage.ToolbarItems>
+        <ToolbarItem Text="Go to main view" 
+                     Command="{Binding NavigateToMenuCommand}"/>
+    </views:MvxContentPage.ToolbarItems>
 
     <StackLayout>
-        <Label Text="Welcome to Xamarin.Forms!"
-               VerticalOptions="CenterAndExpand" 
-               HorizontalOptions="CenterAndExpand" />
+        <CarouselView ItemsSource="{Binding Images}">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding .}"
+                           Aspect="AspectFill"/>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
     </StackLayout>
 
 </views:MvxContentPage>

@@ -95,9 +95,6 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\drawable\" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\TrichoForms.Core\TrichoForms.Core.csproj">
       <Project>{2782c1d1-ce4f-4882-beba-a8172c8f95f9}</Project>
       <Name>TrichoForms.Core</Name>
@@ -106,6 +103,15 @@
       <Project>{53ec3cf1-3bbf-4d08-9c74-b63d5f0eefc0}</Project>
       <Name>TrichoForms.FormsUI</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Carousel_image_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Carousel_image_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Carousel_image_3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
