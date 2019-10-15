@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Acr.UserDialogs;
+using MvvmCross.Commands;
 using MvvmCross.Navigation;
 using MvvmCross.ViewModels;
 using TrichoForms.Core.Interfaces;
@@ -32,22 +34,45 @@ namespace TrichoForms.Core.ViewModels
         public ListViewModel(IMvxNavigationService navigationService, IItemService itemsService) : base(navigationService)
         {
             _itemService = itemsService;
-            Items = new MvxObservableCollection<ListItem>();
         }
 
-        public override async Task Initialize()
+        //public override async Task Initialize()
+        //{
+        //    Items = await GetItemsAsync();
+        //}
+
+        public override async void ViewAppeared()
         {
-            await Task.Run(() =>
+            Items = await GetItemsAsync();
+        }
+
+        public IMvxAsyncCommand RefreshCommand => new MvxAsyncCommand(async () 
+            => Items = await GetItemsAsync());
+
+
+        private async Task<MvxObservableCollection<ListItem>> GetItemsAsync()
+        {
+            try
             {
                 IsBusy = true;
 
-                Items.Clear();
-                var items = _itemService.GetItems();
-                Items.AddRange(items);
-
+                var items = await _itemService.GetItemsAsync();
+                return new MvxObservableCollection<ListItem>(items);
+            }
+            catch (System.IO.IOException ex)
+            {
+                await UserDialogs.Instance.AlertAsync(ex.Message, "Error", "Ok");
+                await NavigationService.Close(this).ConfigureAwait(false);
+            }
+            finally
+            {
                 IsBusy = false;
-            });
+            }
+
+            return new MvxObservableCollection<ListItem>();
         }
+
+
 
 
     }
