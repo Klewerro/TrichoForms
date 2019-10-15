@@ -6,6 +6,10 @@
              mc:Ignorable="d"
              x:Class="TrichoForms.FormsUI.App">
     <Application.Resources>
-
+        <Style x:Key="ButtonDefault" TargetType="Button">
+            <Setter Property="BackgroundColor" Value="DodgerBlue"/>
+            <Setter Property="FontSize" Value="Medium"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
     </Application.Resources>
 </Application>

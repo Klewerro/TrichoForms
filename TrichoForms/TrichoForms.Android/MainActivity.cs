@@ -21,6 +21,7 @@ namespace TrichoForms.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
+            global::Xamarin.Forms.FormsMaterial.Init(this, savedInstanceState);
             base.OnCreate(savedInstanceState);
         }
 

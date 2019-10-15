@@ -8,7 +8,8 @@
                       xmlns:customcontrols="clr-namespace:TrichoForms.FormsUI.CustomControls"
                       mc:Ignorable="d"
                       x:Class="TrichoForms.FormsUI.Views.ListView"
-                      Title="List View">
+                      Title="List View"
+                      Visual="Material">
 
     <views:MvxContentPage.Resources>
         <converters:ImageToImageSourceConverter x:Key="imageSourceConverter"/>

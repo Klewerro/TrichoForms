@@ -7,7 +7,8 @@
                       xmlns:customcontrols="clr-namespace:TrichoForms.FormsUI.CustomControls"
                       mc:Ignorable="d"
                       x:Class="TrichoForms.FormsUI.Views.AboutView"
-                      Title="About application">
+                      Title="About application"
+                      Visual="Material">
 
     <views:MvxContentPage.Content>
         <StackLayout VerticalOptions="Start"
@@ -36,6 +37,7 @@
 
             <Button Text="Close"
                     HorizontalOptions="Center"
+                    BackgroundColor="IndianRed"
                     Command="{Binding CloseCommand}"/>
             
         </StackLayout>

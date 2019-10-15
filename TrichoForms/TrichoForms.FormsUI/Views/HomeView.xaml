@@ -6,7 +6,8 @@
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       mc:Ignorable="d"
                       x:Class="TrichoForms.FormsUI.Views.HomeView"
-                      Title="Home view">
+                      Title="Home view"
+                      Visual="Material">
 
     <views:MvxContentPage.ToolbarItems>
         <ToolbarItem Text="Go to main view" 

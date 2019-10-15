@@ -8,15 +8,20 @@
                       xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
                       mc:Ignorable="d"
                       x:Class="TrichoForms.FormsUI.Views.MainView"
-                      Title="Main view">
+                      Title="Main view"
+                      Visual="Material">
 
     <StackLayout VerticalOptions="Center" 
-                 Margin="30">
+                 Margin="30"
+                 Spacing="15">
         <Button Text="List View"
+                Style="{StaticResource ButtonDefault}"
                 Command="{Binding NavigateToListViewCommand}"/>
         <Button Text="About application"
+                Style="{StaticResource ButtonDefault}"
                 Command="{Binding NavigateToAboutViewCommand}"/>
         <Button Text="Home view"
+                Style="{StaticResource ButtonDefault}"
                 Command="{Binding NavigateToHomeViewCommand}"/>
     </StackLayout>
     
