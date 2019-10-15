@@ -12,20 +12,44 @@ namespace TrichoForms.FormsUI.CustomControls
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CircleImage : ContentView
     {
-        public static BindableProperty ImageSourceProperty = BindableProperty.Create(
-            "ImageSource",
+        public static readonly BindableProperty SourceProperty = BindableProperty.Create(
+            nameof(Source),
             typeof(ImageSource),
-            typeof(ImageSource));
+            typeof(CircleImage),
+            propertyChanged: OnSourceChanged);
+
+        public static readonly BindableProperty CircleSizeProperty = BindableProperty.Create(
+            nameof(CircleSize),
+            typeof(double),
+            typeof(CircleImage),
+            propertyChanged: OnSizeChanged);
 
 
-        public ImageSource ImageSource
+        private static void OnSourceChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            get => GetValue(ImageSourceProperty) as ImageSource;
-            set
-            {
-                SetValue(ImageSourceProperty, value);
-                ImageInside.Source = value;
-            }
+            var control = bindable as CircleImage;
+            control.ImageInFrame.Source = newValue as ImageSource;
+        }
+
+        private static void OnSizeChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            var control = bindable as CircleImage;
+            control.FrameAroundImage.WidthRequest = (double)newValue;
+            control.FrameAroundImage.HeightRequest = (double)newValue;
+            control.FrameAroundImage.CornerRadius = (float)((double)newValue / 2);
+        }
+
+
+        public ImageSource Source
+        {
+            get => GetValue(SourceProperty) as ImageSource;
+            set => SetValue(SourceProperty, value);
+        }
+
+        public double CircleSize
+        {
+            get => (double)GetValue(CircleSizeProperty);
+            set => SetValue(CircleSizeProperty, value);
         }
 
 

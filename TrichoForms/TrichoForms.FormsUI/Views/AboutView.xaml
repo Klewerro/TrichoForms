@@ -23,8 +23,9 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <customcontrols:CircleImage ImageSource="avatar.jpg" 
-                                                HorizontalOptions="Start"/>
+                    <customcontrols:CircleImage Source="avatar.jpg" 
+                                                HorizontalOptions="Start"
+                                                CircleSize="150"/>
                     <Label Text="Welcome to About view. My name is Szymon and this is sample aplication for test MvvmCross."
                            FontSize="Medium"
                            TextColor="Black"

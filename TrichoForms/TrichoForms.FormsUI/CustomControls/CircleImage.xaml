@@ -7,12 +7,11 @@
              x:Class="TrichoForms.FormsUI.CustomControls.CircleImage">
     
   <ContentView.Content>
-        <Frame CornerRadius="75"
-               WidthRequest="150" HeightRequest="150"
+        <Frame x:Name="FrameAroundImage"
                HorizontalOptions="Center"
                Padding="0"
                IsClippedToBounds="True">
-            <Image x:Name="ImageInside" Source="avatar.jpg"
+            <Image x:Name="ImageInFrame"
                    Aspect="AspectFill"
                    HorizontalOptions="Center" VerticalOptions="Center"/>
         </Frame>
