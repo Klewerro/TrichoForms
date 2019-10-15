@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<views:MvxContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                      xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
+                      xmlns:converters="clr-namespace:TrichoForms.FormsUI.Converters"
+                      xmlns:customcontrols="clr-namespace:TrichoForms.FormsUI.CustomControls"
+                      mc:Ignorable="d"
+                      x:Class="TrichoForms.FormsUI.Views.ListView"
+                      Title="List View">
+
+    <views:MvxContentPage.Resources>
+        <converters:ImageToImageSourceConverter x:Key="imageSourceConverter"/>
+    </views:MvxContentPage.Resources>
+
+    <views:MvxContentPage.Content>
+        <ListView ItemsSource="{Binding Items}"
+                  IsRefreshing="{Binding IsBusy}"
+                  RowHeight="120">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <customcontrols:CircleImage Source="{Binding Image, Converter={StaticResource imageSourceConverter}}"
+                                                        Grid.RowSpan="2"
+                                                        CircleSize="100" 
+                                                        VerticalOptions="Center" HorizontalOptions="Center"/>
+                            <Label Text="{Binding Title}"
+                                   FontSize="Large"
+                                   TextColor="Accent"
+                                   VerticalOptions="End"
+                                   Grid.Column="1"/>
+                            <Label Text="{Binding Subtitle}"
+                                   Grid.Row="1" Grid.Column="1"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </views:MvxContentPage.Content>
+    
+</views:MvxContentPage>
