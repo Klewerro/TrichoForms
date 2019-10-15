@@ -16,10 +16,12 @@
     </views:MvxContentPage.Resources>
 
     <views:MvxContentPage.Content>
-        <ListView ItemsSource="{Binding Items}"
+        <views:MvxListView ItemsSource="{Binding Items}"
                   IsRefreshing="{Binding IsBusy}"
+                  IsPullToRefreshEnabled="True"
+                  RefreshCommand="{Binding RefreshCommand}" 
                   RowHeight="120">
-            <ListView.ItemTemplate>
+            <views:MvxListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <Grid>
@@ -45,8 +47,8 @@
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+            </views:MvxListView.ItemTemplate>
+        </views:MvxListView>
     </views:MvxContentPage.Content>
     
 </views:MvxContentPage>

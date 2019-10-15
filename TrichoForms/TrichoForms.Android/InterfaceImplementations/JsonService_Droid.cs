@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Threading.Tasks;
 using TrichoForms.Core.Interfaces;
 using TrichoForms.Droid.InterfaceImplementations;
 using Xamarin.Forms;
@@ -9,14 +10,22 @@ namespace TrichoForms.Droid.InterfaceImplementations
     
     class JsonService_Droid : IJsonService
     {
-        public string GetJson()
+        public async Task<string> GetJsonAsync()
         {
-            var stream = Android.App.Application.Context.Assets.Open("TextFile.txt");
-
-            using (StreamReader reader = new StreamReader(stream))
+            try
             {
-                return reader.ReadToEnd();
+                var stream = Android.App.Application.Context.Assets.Open("TextFile.txt");
+
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    return await reader.ReadToEndAsync().ConfigureAwait(false);
+                }
             }
+            catch (Java.IO.FileNotFoundException)
+            {
+                throw new IOException("File not found.");
+            }
+            
         }
     }
 }

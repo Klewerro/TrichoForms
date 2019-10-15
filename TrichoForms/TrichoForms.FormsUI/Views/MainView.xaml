@@ -11,18 +11,25 @@
                       Title="Main view"
                       Visual="Material">
 
-    <StackLayout VerticalOptions="Center" 
-                 Margin="30"
-                 Spacing="15">
+    <Grid VerticalOptions="Center"
+          RowSpacing="20"
+          Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <Button Text="List View"
                 Style="{StaticResource ButtonDefault}"
                 Command="{Binding NavigateToListViewCommand}"/>
         <Button Text="About application"
                 Style="{StaticResource ButtonDefault}"
-                Command="{Binding NavigateToAboutViewCommand}"/>
+                Command="{Binding NavigateToAboutViewCommand}"
+                Grid.Row="1"/>
         <Button Text="Home view"
                 Style="{StaticResource ButtonDefault}"
-                Command="{Binding NavigateToHomeViewCommand}"/>
-    </StackLayout>
+                Command="{Binding NavigateToHomeViewCommand}"
+                Grid.Row="2"/>
+    </Grid>
     
 </views:MvxContentPage>

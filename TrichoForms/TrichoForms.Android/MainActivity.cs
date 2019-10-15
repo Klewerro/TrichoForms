@@ -22,6 +22,7 @@ namespace TrichoForms.Droid
 
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.FormsMaterial.Init(this, savedInstanceState);
+            Acr.UserDialogs.UserDialogs.Init(this);
             base.OnCreate(savedInstanceState);
         }
 
