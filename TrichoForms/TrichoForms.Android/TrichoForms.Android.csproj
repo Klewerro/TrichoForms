@@ -112,6 +112,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <AndroidResource Include="Resources\drawable\avatar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\TextFile.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <AndroidResource Include="Resources\drawable\Carousel_image_1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -119,12 +125,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Carousel_image_3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\avatar.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\TextFile.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

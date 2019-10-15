@@ -27,7 +27,7 @@
                     <customcontrols:CircleImage Source="avatar.jpg" 
                                                 HorizontalOptions="Start"
                                                 CircleSize="150"/>
-                    <Label Text="Welcome to About view. My name is Szymon and this is sample aplication for test MvvmCross."
+                    <Label Text="Welcome to About view. My name is Szymon and this is sample dogs aplication for test MvvmCross in Xamarin.Forms."
                            FontSize="Medium"
                            TextColor="Black"
                            VerticalOptions="Center"

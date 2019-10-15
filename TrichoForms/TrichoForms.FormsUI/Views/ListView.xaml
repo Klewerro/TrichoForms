@@ -43,6 +43,7 @@
                                    VerticalOptions="End"
                                    Grid.Column="1"/>
                             <Label Text="{Binding Subtitle}"
+                                   FontSize="Medium"
                                    Grid.Row="1" Grid.Column="1"/>
                         </Grid>
                     </ViewCell>
