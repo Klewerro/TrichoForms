@@ -1,5 +1,6 @@
 ﻿using MvvmCross.IoC;
 using MvvmCross.ViewModels;
+using TrichoForms.Core.Models;
 using TrichoForms.Core.ViewModels;
 using Xamarin.Essentials;
 
@@ -32,7 +33,7 @@ namespace TrichoForms.Core
             else
             {
                 RegisterAppStart<HomeViewModel>();
-                Preferences.Set(FIRST_START_KEY, true);
+                Preferences.Set(FIRST_START_KEY, (int)HomeStates.FirstTimeStart);
             }
         }
 
