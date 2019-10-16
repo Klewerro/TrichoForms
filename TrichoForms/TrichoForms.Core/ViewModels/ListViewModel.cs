@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Acr.UserDialogs;
 using MvvmCross.Commands;
 using MvvmCross.Navigation;
@@ -36,18 +37,16 @@ namespace TrichoForms.Core.ViewModels
             _itemService = itemsService;
         }
 
-        //public override async Task Initialize()
-        //{
-        //    Items = await GetItemsAsync();
-        //}
-
         public override async void ViewAppeared()
         {
             Items = await GetItemsAsync();
         }
 
-        public IMvxAsyncCommand RefreshCommand => new MvxAsyncCommand(async () 
+        public IMvxAsyncCommand RefreshCommand => new MvxAsyncCommand(async ()
             => Items = await GetItemsAsync());
+
+        public ICommand ItemSelectedCommand => new MvxCommand<ListItem>(item 
+            => UserDialogs.Instance.Toast(item.Title, TimeSpan.FromSeconds(5)));
 
 
         private async Task<MvxObservableCollection<ListItem>> GetItemsAsync()

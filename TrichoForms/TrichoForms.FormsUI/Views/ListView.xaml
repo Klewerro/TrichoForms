@@ -6,6 +6,7 @@
                       xmlns:views="clr-namespace:MvvmCross.Forms.Views;assembly=MvvmCross.Forms"
                       xmlns:converters="clr-namespace:TrichoForms.FormsUI.Converters"
                       xmlns:customcontrols="clr-namespace:TrichoForms.FormsUI.CustomControls"
+                      xmlns:local="clr-namespace:TrichoForms.FormsUI.Helpers"
                       mc:Ignorable="d"
                       x:Class="TrichoForms.FormsUI.Views.ListView"
                       Title="List View"
@@ -13,14 +14,20 @@
 
     <views:MvxContentPage.Resources>
         <converters:ImageToImageSourceConverter x:Key="imageSourceConverter"/>
+        <converters:ListItemSelectedConverter x:Key="listItemSelectedConverter"/>
     </views:MvxContentPage.Resources>
 
     <views:MvxContentPage.Content>
         <views:MvxListView ItemsSource="{Binding Items}"
-                  IsRefreshing="{Binding IsBusy}"
-                  IsPullToRefreshEnabled="True"
-                  RefreshCommand="{Binding RefreshCommand}" 
-                  RowHeight="120">
+                           IsRefreshing="{Binding IsBusy}"
+                           IsPullToRefreshEnabled="True"
+                           RefreshCommand="{Binding RefreshCommand}" 
+                           RowHeight="120">
+            <views:MvxListView.Behaviors>
+                <local:EventToCommandBehavior EventName="ItemSelected"
+                                              Command="{Binding ItemSelectedCommand}"
+                                              Converter="{StaticResource listItemSelectedConverter}"/>
+            </views:MvxListView.Behaviors>
             <views:MvxListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
